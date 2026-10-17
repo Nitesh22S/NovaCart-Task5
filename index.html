@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="NovaCart — a responsive, optimized demo storefront for everyday essentials and modern tech.">
+  <title>NovaCart — Shop smarter</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement">Free shipping on orders over ₹2,499 <span aria-hidden="true">✦</span> Thoughtful picks, everyday prices</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="NovaCart home"><span class="brand-mark">N</span> nova<span>cart</span></a>
+    <form class="search" role="search" id="search-form">
+      <label class="sr-only" for="search-input">Search products</label>
+      <span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search products..." autocomplete="off">
+      <button type="submit" aria-label="Search">Search</button>
+    </form>
+    <button class="cart-button" id="cart-open" aria-label="Open shopping cart">Bag <span id="cart-count" class="cart-count">0</span></button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> THE EVERYDAY EDIT</p>
+        <h1>Good things.<br><em>Better living.</em></h1>
+        <p class="hero-description">A considered collection of useful tech, home upgrades and everyday essentials — picked to make life feel a little easier.</p>
+        <a class="primary-button" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a>
+        <div class="hero-proof"><div class="avatar-stack"><span>R</span><span>A</span><span>M</span></div><p><strong>4.9/5</strong><br><small>Loved by 2,400+ shoppers</small></p></div>
+      </div>
+      <div class="hero-art" aria-label="Featured headphones and lifestyle products">
+        <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+        <img class="hero-image" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=82" alt="Premium wireless headphones" fetchpriority="high">
+        <div class="floating-note"><span class="note-icon">✦</span><span><strong>Editor’s pick</strong><small>Sound, refined.</small></span></div>
+        <div class="hero-index">01 <span> / 04</span></div>
+      </div>
+    </section>
+
+    <section class="benefits" aria-label="Store benefits">
+      <div><span class="benefit-icon">↗</span><span><strong>Free delivery</strong><small>On orders over ₹2,499</small></span></div>
+      <div><span class="benefit-icon">◇</span><span><strong>Quality checked</strong><small>Products we stand behind</small></span></div>
+      <div><span class="benefit-icon">↺</span><span><strong>Easy returns</strong><small>7-day return window</small></span></div>
+      <div><span class="benefit-icon">♡</span><span><strong>Human support</strong><small>Here when you need us</small></span></div>
+    </section>
+
+    <section class="shop-section" id="shop">
+      <div class="section-heading">
+        <div><p class="eyebrow">FIND YOUR NEXT FAVOURITE</p><h2>Shop the collection<span>.</span></h2></div>
+        <p class="section-note">Useful by design. Lovely to own.</p>
+      </div>
+      <div class="shop-controls">
+        <div class="category-list" id="category-list" aria-label="Filter by category">
+          <button class="category-chip active" data-category="All">All products <span>8</span></button>
+          <button class="category-chip" data-category="Tech">Tech</button>
+          <button class="category-chip" data-category="Home">Home</button>
+          <button class="category-chip" data-category="Lifestyle">Lifestyle</button>
+        </div>
+        <label class="sort-label" for="sort-select">Sort by
+          <select id="sort-select">
+            <option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option>
+          </select>
+        </label>
+      </div>
+      <p class="results-count" id="results-count" aria-live="polite">Showing 8 products</p>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state" id="empty-state" hidden><span>⌕</span><h3>No matches just yet</h3><p>Try a different search or category.</p><button class="secondary-button" id="clear-filters">Clear filters</button></div>
+    </section>
+
+    <section class="newsletter">
+      <div><p class="eyebrow">A LITTLE GOOD IN YOUR INBOX</p><h2>Good finds, occasionally.</h2><p>Get first dibs on new arrivals and thoughtful offers. No noise, ever.</p></div>
+      <form id="newsletter-form" class="newsletter-form"><label class="sr-only" for="email-input">Email address</label><input id="email-input" type="email" placeholder="Your email address" required><button type="submit">Join the list <span aria-hidden="true">→</span></button><small id="newsletter-message" aria-live="polite">By subscribing, you agree to receive NovaCart updates.</small></form>
+    </section>
+  </main>
+  <footer class="site-footer"><a class="brand" href="#"><span class="brand-mark">N</span> nova<span>cart</span></a><p>Thoughtful essentials for everyday living.</p><span>© <span id="year"></span> NovaCart. Student demo project.</span></footer>
+
+  <div class="scrim" id="scrim" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="drawer-header"><div><p class="eyebrow">YOUR SELECTION</p><h2 id="cart-title">Shopping bag <span id="drawer-count">(0)</span></h2></div><button class="icon-button" id="cart-close" aria-label="Close shopping cart">✕</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-empty" id="cart-empty"><span>♡</span><h3>Your bag is taking a break</h3><p>Add something lovely to get started.</p><button class="primary-button" id="continue-shopping">Explore products</button></div>
+    <div class="drawer-footer" id="drawer-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-subtotal">₹0</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="checkout-button" id="checkout-button">Continue to checkout <span>→</span></button><small class="demo-note">Demo checkout — no payment is collected.</small></div>
+  </aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
